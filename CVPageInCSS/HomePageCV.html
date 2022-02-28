@@ -2,19 +2,20 @@
 <html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="progressBar.css" rel="stylesheet" />
     <title>John Doe CV</title>
     <style>
-        /*:root {*/
-        /*Colors*/
-        /*--page-background: white;
+        :root {
+            --skill-bar-color: seagreen;
+            /*--page-background: white;
             --light-gray: #EEE;
             --dark-gray: #444;
             --dark-green: #005f73;
             --green: #0a9396;
             --light-green: #94d2bd;
             --dark-orange: #ee9b00;
-            --light-orange: #e9d8a6;
-        }*/
+            --light-orange: #e9d8a6;*/
+        }
 
         body {
             background: rgb(204,204,204);
@@ -22,50 +23,44 @@
             font-family: sans-serif;
         }
 
-        #colonne {
+        #columns {
             width: 210mm;
             height: 297mm;
-            margin: auto;
+            margin: 0.5cm auto;
             display: flex;
+            box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
         }
 
-        #colonna_sinistra {
+        #column_left {
             background-color: #005f73;
             display: flex;
             flex-direction: column;
             flex-grow: 0.25;
         }
 
-            #colonna_sinistra > * {
-                align-self: center;
+            #column_left * {
+                margin: 2px;
             }
 
         #skill_list > h5 {
             align-self: flex-start;
         }
 
-        .skill_block .progress {
-            text-align: left;
-            /*border-radius: 95%;*/
-            background-color: moccasin;
-        }
-
-        #colonna_destra {
+        #column_right {
             display: flex;
             flex-direction: column;
         }
 
-        #sopra {
+        #topmost {
             background-color: #ee9b00;
             display: flex;
             flex-direction: column;
-            font-weight: bold; 
+            font-weight: bold;
             padding-left: 5%;
             padding-right: 5%;
-            
         }
 
-        #sotto {
+        #bottommost {
             background-color: white;
             display: flex;
             flex-direction: column;
@@ -75,12 +70,11 @@
             padding-right: 5%;
         }
 
-        
-
-        #immagineProfilo {
+        #profileImage {
             width: 5cm;
             height: 5cm;
-            margin-top: 40px;
+            margin:0.5cm;
+            margin-top:1cm;
             border-style: solid;
             border-radius: 50%;
             border-width: 3px;
@@ -93,7 +87,7 @@
             width: 90%;
         }
 
-        #containerLuogoFirma, #containerMailNumero {
+        #containerPlaceAndSignature, #containerMailAndNumber {
             display: flex;
         }
 
@@ -101,39 +95,54 @@
             flex-grow: 3;
         }
 
-        #Luogo, #Firma, #Numero {
+        #place, #signature, #number {
             flex-grow: 1;
         }
     </style>
 </head>
+
 <body>
-    <div id="colonne">
-        <div id="colonna_sinistra">
-            <img id="immagineProfilo" src="test.jpeg" />
+    <div id="columns">
+        <div id="column_left">
+            <img id="profileImage" src="test.jpeg" />
             <div id="skill_list">
                 <h1>Skills</h1>
                 <hr class="skill" />
                 <h5>Programming Languages</h5>
                 <div class="skill_block">
-                    <div class="progress" style="width:70%">C#</div>
-                    <div class="progress" style="width:25%">HTML</div>
-                    <div class="progress" style="width:15%">CSS</div>
-                    <div class="progress" style="width:33%">Javascript</div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:70%">C#</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:25%">HTML</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:15%">CSS</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:33%">Javascript</div>
+                    </div>
                 </div>
                 <h5>Databases</h5>
                 <div class="skill_block">
-                    <div class="progress" style="width:80%">SQL Server</div>
-                    <div class="progress" style="width:66%">PostoGres</div>
-                    <div class="progress" style="width:50%">Mongo</div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:80%">SQL Server</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:66%">PostoGres</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:50%">Mongo</div>
+                    </div>
                 </div>
             </div>
         </div>
 
 
-        <div id="colonna_destra">
-            <div id="sopra">
+        <div id="column_right">
+            <div id="topmost">
                 <!-- arancione -->
-                <div id="principale" style=" margin-top: 40px;">
+                <div id="principale" style="        margin-top: 40px;">
                     <h1>John Doe</h1>
                     <hr />
                     <h4>Anonymous Person</h4>
@@ -141,15 +150,15 @@
                 <div id="secondario">
                     <h5>contacts</h5>
                     <hr />
-                    <div id="containerMailNumero">
+                    <div id="containerMailAndNumber">
                         <div id="Mail">john.doe@outook.com</div>
-                        <div id="Numero">+001 123456789</div>
+                        <div id="number">+001 123456789</div>
                     </div>
                 </div>
             </div>
-            <div id="sotto">
+            <div id="bottommost">
                 <!-- bianco -->
-                <div class="bloccoTesto"  style=" margin-top: 40px;">
+                <div class="textBlock" style="        margin-top: 40px;">
                     <h1>About Me</h1>
                     <hr />
                     <p><b>John Doe</b> (male) and <b>Jane Doe</b> (female) [...]</p>
@@ -160,7 +169,7 @@
                         <li>"Janie Doe"</li>
                     </ul>
                 </div>
-                <div class="bloccoTesto">
+                <div class="textBlock">
                     <h1>Languages</h1>
                     <hr />
                     <table class="table table-striped">
@@ -194,13 +203,13 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="bloccoTesto">
+                <div class="textBlock">
                     <h1>Treatment of personal data</h1>
                     <hr />
                     <p>In compliance with the Italian legislative Decree no. 196 dated 30/06/2003, I hereby authorize you to use and process my personal details contained in this document for purposes related with job offers.</p>
-                    <div id="containerLuogoFirma">
-                        <div id="Luogo">Los Angeles, 2022/02/28</div>
-                        <div id="Firma">John Doe</div>
+                    <div id="containerPlaceAndSignature">
+                        <div id="place">Los Angeles, 2022/02/28</div>
+                        <div id="signature">John Doe</div>
                     </div>
                 </div>
             </div>
